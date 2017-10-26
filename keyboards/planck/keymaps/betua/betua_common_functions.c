@@ -98,8 +98,14 @@ int cur_dance (qk_tap_dance_state_t *state) {
 
 
 const uint16_t PROGMEM fn_actions[] = {
-    // Equivalent to ACTION_MODS_TAP_KEY(MOD_RCTL, KC_RBRC)
+    // Equivalent to ACTION_MODS_TAP_KEY(MOD_RCTL, KC_RBRC)  CTRL, }
     [0] = ACTION_MACRO_TAP(0),
+    // Equivalent to ACTION_MODS_TAP_KEY(MOD_RALT, KC_RABK)  ALT, >
+    [1] = ACTION_MACRO_TAP(1),
+    // Equivalent to ACTION_MODS_TAP_KEY(MOD_LCTL, KC_LBRC)  CTRL, {
+    //[2] = ACTION_MACRO_TAP(2),
+    // Equivalent to ACTION_MODS_TAP_KEY(MOD_LALT, KC_LABK)  ALT, <
+    //[3] = ACTION_MACRO_TAP(3),
 
     // Equivalent to ACTION_LAYER_TAP_KEY(_LW, KC_LPRN)
     //[1] = ACTION_MACRO_TAP(1)
@@ -109,21 +115,77 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
     switch(id) {
         case 0: // ACTION_MODS_TAP_KEY(MOD_RCTL, KC_RBRC)
-            if (record->event.pressed) {
-                // Activate shift
-                register_mods(MOD_LSFT);
-            } else {
-                // If the action was a tap
-                if (record->tap.count && !record->tap.interrupted) {
-                    // Send ], which is modified by shift as per above
-                    register_code(KC_RBRC);
-                    unregister_code(KC_RBRC);
-                }
-                // Deactivate shift
-                unregister_mods(MOD_LSFT);
-                record->tap.count = 0;
-            }
-            break;
+      		if (record->event.pressed) {
+  		      register_mods(MOD_RCTL);
+  		      record->tap.interrupted = 0;
+ 		     } else {
+  		      unregister_mods(MOD_RCTL);
+		
+  		      if (record->tap.count && !record->tap.interrupted) {
+  		        add_weak_mods(MOD_LSFT);
+  		        register_code(KC_RBRC);
+  		        unregister_code(KC_RBRC);
+  		        del_weak_mods(MOD_LSFT);
+  		      }
+		
+  		      record->tap.count = 0;
+  		    }
+  		    break;
+  		    
+  		case 1: // ACTION_MODS_TAP_KEY(MOD_RALT, KC_RABK)
+      		if (record->event.pressed) {
+  		      register_mods(MOD_RALT);
+  		      record->tap.interrupted = 0;
+ 		     } else {
+  		      unregister_mods(MOD_RALT);
+		
+  		      if (record->tap.count && !record->tap.interrupted) {
+  		        add_weak_mods(MOD_LSFT);
+  		        register_code(KC_DOT);
+  		        unregister_code(KC_DOT);
+  		        del_weak_mods(MOD_LSFT);
+  		      }
+		
+  		      record->tap.count = 0;
+  		    }
+  		    break;  
+  		
+  		case 2: // ACTION_MODS_TAP_KEY(MOD_RCTL, KC_LBRC)
+      		if (record->event.pressed) {
+  		      register_mods(MOD_LCTL);
+  		      record->tap.interrupted = 0;
+ 		     } else {
+  		      unregister_mods(MOD_LCTL);
+		
+  		      if (record->tap.count && !record->tap.interrupted) {
+  		        add_weak_mods(MOD_LSFT);
+  		        register_code(KC_LBRC);
+  		        unregister_code(KC_LBRC);
+  		        del_weak_mods(MOD_LSFT);
+  		      }
+		
+  		      record->tap.count = 0;
+  		    }
+  		    break;  
+  		    
+  		case 3: // ACTION_MODS_TAP_KEY(MOD_LALT, KC_LABK)
+      		if (record->event.pressed) {
+  		      register_mods(MOD_LALT);
+  		      record->tap.interrupted = 0;
+ 		     } else {
+  		      unregister_mods(MOD_LALT);
+		
+  		      if (record->tap.count && !record->tap.interrupted) {
+  		        add_weak_mods(MOD_LSFT);
+  		        register_code(KC_COMMA);
+  		        unregister_code(KC_COMMA);
+  		        del_weak_mods(MOD_LSFT);
+  		      }
+		
+  		      record->tap.count = 0;
+  		    }
+  		    break;      
+  		  
     }
     return MACRO_NONE;
 };
