@@ -13,7 +13,9 @@ enum planck_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
   RAISE,
-  BACKLIT
+  BACKLIT,
+  M_PIPE,
+  M_GROUP_BY
 };
 
 //Tap Dance Declarations
@@ -21,6 +23,7 @@ enum {
   TD_SP_ENT = 0,
   TD_FUCK_ME_SILLY
 };
+
 
 
 
@@ -58,10 +61,6 @@ int cur_dance (qk_tap_dance_state_t *state) {
 }
 
 //**************** Definitions needed for quad function to work *********************//
-
-
-
-
 
 //*********************** RIGHT BRACKET / 
 //instanalize an instance of 'tap' for the 'x' tap dance.
@@ -103,9 +102,9 @@ const uint16_t PROGMEM fn_actions[] = {
     // Equivalent to ACTION_MODS_TAP_KEY(MOD_RALT, KC_RABK)  ALT, >
     [1] = ACTION_MACRO_TAP(1),
     // Equivalent to ACTION_MODS_TAP_KEY(MOD_LCTL, KC_LBRC)  CTRL, {
-    //[2] = ACTION_MACRO_TAP(2),
+    [2] = ACTION_MACRO_TAP(2),
     // Equivalent to ACTION_MODS_TAP_KEY(MOD_LALT, KC_LABK)  ALT, <
-    //[3] = ACTION_MACRO_TAP(3),
+    [3] = ACTION_MACRO_TAP(3),
 
     // Equivalent to ACTION_LAYER_TAP_KEY(_LW, KC_LPRN)
     //[1] = ACTION_MACRO_TAP(1)
