@@ -178,7 +178,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-  /* ---- MACROS! ---- */
+  /* #########################    M A C R O S    ########################### */
   // ` %>% <[ENTER>`
 	case M_PIPE:
       if (record->event.pressed) {
@@ -189,8 +189,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) {
       	SEND_STRING("group_by(");
       } return false; break;
+  // `<[RGUI RALT: ` ]>`
+    case M_NEXT_CHUNK:
+      if (record->event.pressed) {
+      	SEND_STRING(SS_DOWN(X_RGUI)SS_DOWN(X_RALT)"`"SS_UP(X_RALT)SS_UP(X_RGUI));
+      } return false; break;
+      
 
-  	// Default for the planck, I believe
+
+ 
+
+  	/* #########################    D E F A U L T    ########################### */
     case QWERTY:
       if (record->event.pressed) {
         print("mode just switched to qwerty and this is a huge string\n");

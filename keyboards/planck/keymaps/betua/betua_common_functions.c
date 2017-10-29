@@ -3,6 +3,7 @@ extern keymap_config_t keymap_config;
 enum planck_layers {
   _QWERTY,
   _TAPMODS,
+  _RLAYER,
   _LOWER,
   _RAISE,
   _ADJUST,
@@ -15,7 +16,8 @@ enum planck_keycodes {
   RAISE,
   BACKLIT,
   M_PIPE,
-  M_GROUP_BY
+  M_GROUP_BY,
+  M_NEXT_CHUNK
 };
 
 //Tap Dance Declarations
