@@ -7,7 +7,8 @@ enum planck_layers {
   _LOWER,
   _RAISE,
   _ADJUST,
-  _CUSTOM
+  _CUSTOML,
+  _CUSTOMR
 };
 
 enum planck_keycodes {
@@ -23,7 +24,8 @@ enum planck_keycodes {
 //Tap Dance Declarations
 enum {
   TD_SP_ENT = 0,
-  TD_FUCK_ME_SILLY
+  TD_ESC_TOG,
+  TD_GRV_TOG
 };
 
 
