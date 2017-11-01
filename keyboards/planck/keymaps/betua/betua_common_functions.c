@@ -18,7 +18,8 @@ enum planck_keycodes {
   BACKLIT,
   M_PIPE,
   M_GROUP_BY,
-  M_NEXT_CHUNK
+  M_NEXT_CHUNK,
+  M_MUTATE
 };
 
 //Tap Dance Declarations
