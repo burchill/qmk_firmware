@@ -69,6 +69,14 @@ typedef struct
     .fn = { NULL, qk_tap_dance_dual_role_finished, qk_tap_dance_dual_role_reset }, \
     .user_data = (void *)&((qk_tap_dance_dual_role_t) { kc, layer }), \
   }
+  
+/* This is Zach Burchill's own code ZACHEDIT */
+#define ACTION_TAP_DANCE_TOGGLE_LAYER(kc, layer) { \
+    .fn = { NULL, qk_tap_dance_toggle_layer_finished, qk_tap_dance_toggle_layer_reset }, \
+    .user_data = (void *)&((qk_tap_dance_dual_role_t) { kc, layer }), \
+  }
+/* End of Zach's custom code */
+
 
 #define ACTION_TAP_DANCE_FN(user_fn) {  \
     .fn = { NULL, user_fn, NULL }, \
