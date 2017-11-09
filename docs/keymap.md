@@ -28,12 +28,14 @@ Respective layers can be validated simultaneously. Layers are indexed with 0 to 
 Sometimes, the action code stored in keymap may be referred as keycode in some documents due to the TMK history.
 
 ### Keymap layer status
-The state of the Keymap layer is determined by two 32 bit parameters:
+Keymap layer has its state in two 32 bit parameters:
 
-* **`default_layer_state`** indicates a base keymap layer (0-31) which is always valid and to be referred (the default layer).
-* **`layer_state`** has current on/off status of each layer in its bits.
+* **`default_layer_state`** indicates a base keymap layer(0-31) which is always valid and to be referred.
+* **`layer_state`** () has current on/off status of the layer on its each bit.
 
-Keymap layer '0' is usually `default_layer`, wither other layers initially off after booting up the firmware, although this can configured differently in `config.h`. It is useful to change `default_layer` when you completely switch a key layout, for example, if you want to switch to Colemak instead of Qwerty.
+Keymap has its state in two parameter **`default_layer`** indicates a base keymap layer(0-31) which is always valid and to be referred, **`keymap_stat`** is 16bit variable which has current on/off status of layers on its each bit.
+Keymap layer '0' is usually `default_layer` and which is the only valid layer and other layers is initially off after boot up firmware, though, you can configured them in `config.h`.
+To change `default_layer` will be useful when you switch key layout completely, say you want Colemak instead of Qwerty.
 
     Initial state of Keymap          Change base layout              
     -----------------------          ------------------              
@@ -50,7 +52,7 @@ Keymap layer '0' is usually `default_layer`, wither other layers initially off a
     `--- default_layer = 0           `--- default_layer = 1
          layer_state   = 0x00000001       layer_state   = 0x00000002
 
-On the other hand, you can change `layer_state` to overlay the base layer with other layers for features such as navigation keys, function keys (F1-F12), media keys, and/or special actions.
+On the other hand, you shall change `layer_state` to overlay base layer with some layers for feature such as navigation keys, function key(F1-F12), media keys or special actions.
 
     Overlay feature layer
     ---------------------      bit|status

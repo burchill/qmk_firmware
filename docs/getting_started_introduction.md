@@ -36,7 +36,7 @@ If the keymap `config.h` exists, that file is included by the build system and t
 #ifndef CONFIG_USER_H
 #define CONFIG_USER_H
 
-#include "config_common.h"
+#include "../../config.h"
 ```
 
 If you want to override a setting from the parent `config.h` file, you need to `#undef` and then `#define` the setting again, like this:
