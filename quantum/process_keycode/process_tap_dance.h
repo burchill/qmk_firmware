@@ -108,6 +108,9 @@ void qk_tap_dance_pair_reset (qk_tap_dance_state_t *state, void *user_data);
 void qk_tap_dance_dual_role_finished (qk_tap_dance_state_t *state, void *user_data);
 void qk_tap_dance_dual_role_reset (qk_tap_dance_state_t *state, void *user_data);
 
+void qk_tap_dance_toggle_layer_finished (qk_tap_dance_state_t *state, void *user_data);
+void qk_tap_dance_toggle_layer_reset (qk_tap_dance_state_t *state, void *user_data);
+
 #else
 
 #define TD(n) KC_NO
