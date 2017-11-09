@@ -22,6 +22,7 @@
 //Tap Dance Definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
   //Tap twice, toggle R Layer
+  // This requires the custom code I wrote for the `process_tap_dance` files
   [TD_ESC_TOG] = ACTION_TAP_DANCE_TOGGLE_LAYER(KC_ESC, _RLAYER),
   [TD_GRV_TOG] = ACTION_TAP_DANCE_TOGGLE_LAYER(KC_GRV, _RLAYER),
   //Tap once for Space, Twice for enter
