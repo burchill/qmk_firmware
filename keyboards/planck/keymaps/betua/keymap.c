@@ -22,8 +22,8 @@
 //Tap Dance Definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
   //Tap twice, toggle R Layer
-  [TD_ESC_TOG] = ACTION_TAP_DANCE_DUAL_ROLE(KC_ESC, _RLAYER),
-  [TD_GRV_TOG] = ACTION_TAP_DANCE_DUAL_ROLE(KC_GRV, _TAPMODS),
+  [TD_ESC_TOG] = ACTION_TAP_DANCE_TOGGLE_LAYER(KC_ESC, _RLAYER),
+  [TD_GRV_TOG] = ACTION_TAP_DANCE_TOGGLE_LAYER(KC_GRV, _RLAYER),
   //Tap once for Space, Twice for enter
   [TD_SP_ENT] = ACTION_TAP_DANCE_DOUBLE(KC_SPC, KC_ENT)
 // Other declarations would go here, separated by commas, if you have them
